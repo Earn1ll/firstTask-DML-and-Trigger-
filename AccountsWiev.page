@@ -1,0 +1,23 @@
+<apex:page controller="AccauntsController" tabStyle="Account">
+    <apex:form >
+        <apex:pageBlock title="Accounts">
+        <apex:pageBlockTable value="{!accounts}" var="acct" id="data"> 
+       <!--     <apex:pageBlockSection >
+            <apex:commandLink target="_blank"
+                              action="{!URLFOR($Action.Account.New)}"
+                              value="{!acct.Name}"/>
+    		</apex:pageBlockSection > -->
+                <apex:column value="{!acct.Name}"/>            
+                <apex:column value="{!acct.BillingCity}"/>               
+                <apex:column value="{!acct.Type}"/>
+                <apex:column value="{!acct.Id}"/>
+        </apex:pageBlockTable> 
+            <apex:pageBlockButtons location="bottom">
+        		<apex:commandButton value="Create" action="{!CreateAccounts}" />
+        		<apex:commandButton value="Update" action="{!updateAccaunts}" reRender="data" />
+        		<apex:commandButton value="Delete last" action="{!deleteAccaunts}" reRender="data" />
+               <!-- <apex:commandButton value="Accounts tab" action="{!URLFOR($Action.Account.New)}" /> -->
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
